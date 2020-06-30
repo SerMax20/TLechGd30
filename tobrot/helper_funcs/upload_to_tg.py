@@ -91,7 +91,7 @@ async def upload_to_tg(
             i_m_s_g = await message.reply_text(
                 "Telegram does not support uploading this file.\n"
                 f"Detected File Size: {d_f_s} 😡\n"
-                "\n🤖 trying to split the files 🌝🌝🌚"
+                "\n 🌀 trying to split the files 🌝🌝🌚"
             )
             splitted_dir = await split_large_files(local_file_name)
             totlaa_sleif = os.listdir(splitted_dir)
@@ -128,7 +128,7 @@ async def upload_to_tg(
 
 async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
     await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-    del_it = await message.edit_text("🔊 Now Uploading to ☁️ Cloud!!!")
+    del_it = await message.edit_text("🔊 Uploading to ☁ Cloud!!!")
     subprocess.Popen(('touch', 'rclone.conf'), stdout = subprocess.PIPE)
     with open('rclone.conf', 'a', newline="\n") as fole:
         fole.write("[DRIVE]\n")
@@ -154,15 +154,15 @@ async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
         #indexurl = f"{INDEX_LINK}/{file_upload}"
         #tam_link = requests.utils.requote_uri(indexurl)
         button = []
-        button.append([pyrogram.InlineKeyboardButton(text="☁️ FileCloudUrl ☁️", url=f"{gau_link}")])
+        button.append([pyrogram.InlineKeyboardButton(text="⛅ Cloud Url ", url=f"{gau_link}")])
         if INDEX_LINK:
             indexurl = f"{INDEX_LINK}/{file_upload}"
             tam_link = requests.utils.requote_uri(indexurl)
             print(tam_link)
-            button.append([pyrogram.InlineKeyboardButton(text="ℹ️ FileIndexUrl ℹ️", url=f"{tam_link}")])
+            button.append([pyrogram.InlineKeyboardButton(text="⚙ Index Url ", url=f"{tam_link}")])
         button_markup = pyrogram.InlineKeyboardMarkup(button)
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-        await messa_ge.reply_text(f"🤖: {file_upload} has been Uploaded successfully to your Cloud <a href='tg://user?id={g_id}'>🤒</a>", reply_markup=button_markup)
+        await messa_ge.reply_text(f"🤖: {file_upload} Uploaded to Cloud <a href='tg://user?id={g_id}'>🤒</a>", reply_markup=button_markup)
         #await message.edit_text(f"""🤖: {file_upload} has been Uploaded successfully to your cloud 🤒\n\n☁️ Cloud URL:  <a href="{gau_link}">FileLink</a>\nℹ️ Direct URL:  <a href="{tam_link}">IndexLink</a>""")
         os.remove(file_upload)
         await del_it.delete()
@@ -190,15 +190,15 @@ async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
         #tam_link = requests.utils.requote_uri(indexurl)
         #print(tam_link)
         button = []
-        button.append([pyrogram.InlineKeyboardButton(text="☁️ FolderCloudUrl ☁️", url=f"{gau_link}")])
+        button.append([pyrogram.InlineKeyboardButton(text="⛅ Cloud Url ☁️", url=f"{gau_link}")])
         if INDEX_LINK:
             indexurl = f"{INDEX_LINK}/{file_upload}/"
             tam_link = requests.utils.requote_uri(indexurl)
             print(tam_link)
-            button.append([pyrogram.InlineKeyboardButton(text="ℹ️ FolderIndexUrl ℹ️", url=f"{tam_link}")])
+            button.append([pyrogram.InlineKeyboardButton(text="⚙ Index Url ", url=f"{tam_link}")])
         button_markup = pyrogram.InlineKeyboardMarkup(button)
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-        await messa_ge.reply_text(f"🤖: Folder has been Uploaded successfully to {tt} in your Cloud <a href='tg://user?id={g_id}'>🤒</a>", reply_markup=button_markup)
+        await messa_ge.reply_text(f"🤖: Uploaded to {tt} Cloud <a href='tg://user?id={g_id}'>🤒</a>", reply_markup=button_markup)
         #await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
         #await messa_ge.reply_text(f"""🤖: Folder has been Uploaded successfully to {tt} in your cloud 🤒\n\n☁️ Cloud URL:  <a href="{gau_link}">FolderLink</a>\nℹ️ Index Url:. <a href="{tam_link}">IndexLink</a>""")
         shutil.rmtree(file_upload)
@@ -369,7 +369,7 @@ async def upload_single_file(message, local_file_name, caption_str, from_user, e
                     os.path.dirname(os.path.abspath(local_file_name))
                 )
             # if a file, don't upload "thumb"
-            # this "diff" is a major derp -_- 😔😭😭
+            # this "diff" is a major derp -_- 😭
             thumb = None
             if thumb_image_path is not None and os.path.isfile(thumb_image_path):
                 thumb = thumb_image_path
