@@ -128,7 +128,7 @@ async def upload_to_tg(
 
 async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
     await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
-    del_it = await message.edit_text("🔊 Uploading to ☁ Cloud!!!")
+    del_it = await message.edit_text("📤  █▓▒░░Uploading░░▒▓█ to cloud⛅")
     subprocess.Popen(('touch', 'rclone.conf'), stdout = subprocess.PIPE)
     with open('rclone.conf', 'a', newline="\n") as fole:
         fole.write("[DRIVE]\n")
@@ -159,7 +159,7 @@ async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
             indexurl = f"{INDEX_LINK}/{file_upload}"
             tam_link = requests.utils.requote_uri(indexurl)
             print(tam_link)
-            button.append([pyrogram.InlineKeyboardButton(text="⚙ Index Url ", url=f"{tam_link}")])
+            button.append([pyrogram.InlineKeyboardButton(text="⚙ 🅸🅽🅳🅴🆇 Url ", url=f"{tam_link}")])
         button_markup = pyrogram.InlineKeyboardMarkup(button)
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
         await messa_ge.reply_text(f"🤖: {file_upload} Uploaded to Cloud <a href='tg://user?id={g_id}'>🤒</a>", reply_markup=button_markup)
@@ -195,7 +195,7 @@ async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
             indexurl = f"{INDEX_LINK}/{file_upload}/"
             tam_link = requests.utils.requote_uri(indexurl)
             print(tam_link)
-            button.append([pyrogram.InlineKeyboardButton(text="⚙ Index Url ", url=f"{tam_link}")])
+            button.append([pyrogram.InlineKeyboardButton(text="⚙ 🅸🅽🅳🅴🆇 Url ", url=f"{tam_link}")])
         button_markup = pyrogram.InlineKeyboardMarkup(button)
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
         await messa_ge.reply_text(f"🤖: Uploaded to {tt} Cloud <a href='tg://user?id={g_id}'>🤒</a>", reply_markup=button_markup)
