@@ -38,7 +38,7 @@ async def help_message_f(client, message):
     #message_id = 99
     # display the /help
     
-    await message.reply_text("""Welcome...!\n\n Please Read Pinned Massage""", disable_web_page_preview=True)
+    await message.reply_text("""🔥 WELCOME...!🔥  \n\n 💥Unlimited Download Group \n\n 💥Please Read Pinned Massage""", disable_web_page_preview=True)
 
 
 async def rename_message_f(client, message):
